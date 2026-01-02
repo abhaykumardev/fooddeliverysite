@@ -1,0 +1,244 @@
+
+.login-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.35s ease;
+  height: 650px;
+}
+
+
+.login-popup {
+  width: 420px;
+  padding: 40px 32px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.13);
+  backdrop-filter: blur(22px);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 18px rgba(255, 99, 71, 0.45);
+
+  color: white;
+  position: relative;
+  animation: popupScale 0.35s ease;
+}
+
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 20px;
+  color: #ff8a7a;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.25);
+  color: #ff6347;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  letter-spacing: 0.8px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #e6e6e6;
+  margin-bottom: 28px;
+}
+
+
+.input-group input {
+  width: 100%;
+  padding: 13px 15px;
+  margin-bottom: 16px;
+
+  border-radius: 12px;
+  border: 1px solid rgba(255, 99, 71, 0.35);
+
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+
+  color: #ffffff;
+  font-size: 15px;
+  outline: none;
+  transition: 0.25s ease;
+}
+
+.input-group input::placeholder {
+  color: #d8d8d8;
+}
+
+.input-group input:focus {
+  border-color: tomato;
+  box-shadow: 0px 0px 10px rgba(255, 99, 71, 0.55);
+}
+
+
+.login-btn {
+  width: 100%;
+  padding: 13px 0;
+  margin-top: 5px;
+
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #ff6548, #ff7b6c);
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  box-shadow: 0 0 14px rgba(255, 99, 71, 0.7);
+  transition: 0.25s ease;
+}
+
+.login-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(255, 99, 71, 0.95);
+}
+
+
+.signup-text {
+  margin-top: 18px;
+  font-size: 13px;
+  color: #eeeeee;
+}
+
+.signup-text span {
+  color: tomato;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.signup-text span:hover {
+  text-decoration: underline;
+}
+
+
+.switch-tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+
+  padding: 6px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 99, 71, 0.3);
+
+  box-shadow: 0 0 14px rgba(255, 99, 71, 0.35);
+}
+
+.switch-tabs button {
+  flex: 1;
+  border: none;
+  padding: 10px 0;
+  border-radius: 10px;
+
+  background: transparent;
+  color: #f2f2f2;
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.switch-tabs button:hover {
+  background: rgba(255, 99, 71, 0.22);
+}
+
+.switch-tabs button.active {
+  background: rgba(255, 99, 71, 0.6);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(255, 99, 71, 0.9);
+}
+
+.form-slider {
+  width: 200%;
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.form {
+  width: 50%;
+  padding: 5px;
+}
+
+/* SLIDE POSITIONS */
+.login-popup.slide-login .form-slider {
+  transform: translateX(0%);
+}
+
+.login-popup.slide-signup .form-slider {
+  transform: translateX(-50%);
+}
+
+
+.tab-switch {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.tab-switch button {
+  padding: 8px 20px;
+  border-radius: 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.18);
+
+  color: white;
+  cursor: pointer;
+
+  transition: 0.3s ease;
+  font-size: 15px;
+}
+
+.tab-switch button.active {
+  background: tomato;
+  border-color: tomato;
+  box-shadow: 0 0 15px rgba(255, 99, 71, 0.8);
+}
+
+.tab-switch button:hover {
+  box-shadow: 0 0 12px rgba(255, 99, 71, 0.65);
+}
+
+.form-slider-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+
+/* ------------------------------------------------------
+   ANIMATIONS
+-------------------------------------------------------*/
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popupScale {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

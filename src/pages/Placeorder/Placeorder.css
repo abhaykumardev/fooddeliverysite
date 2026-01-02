@@ -1,0 +1,158 @@
+/* --- Overall Layout --- */
+.place-order {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  animation: fadeIn 0.8s ease-in-out;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* LEFT SIDE - Form */
+.place-order-left {
+  flex: 1;
+  background: #fff;
+  padding: 1.8rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  animation: floatCard 1s ease-in-out forwards;
+}
+
+/* Smooth floating animation */
+@keyframes floatCard {
+  0% { transform: translateY(15px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Input styling */
+.place-order-left input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  border: 1px solid #dcdcdc;
+  transition: all 0.3s ease-in-out;
+  font-size: 1rem;
+}
+
+.place-order-left input:focus {
+  border-color: #ff7b2d;
+  box-shadow: 0 0 8px rgba(255, 123, 45, 0.4);
+  outline: none;
+}
+
+/* Flex rows for multiple fields */
+.multi-fields {
+  display: flex;
+  gap: 1rem;
+}
+
+/* RIGHT SIDE - Cart Summary */
+.place-order-right {
+  width: 320px;
+  background: #ffffff;
+  padding: 1.8rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  animation: slideRight 0.9s ease-in-out forwards;
+}
+
+@keyframes slideRight {
+  0% { opacity: 0; transform: translateX(30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.cart-total-details .detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.8rem 0;
+  font-size: 1rem;
+}
+
+.detail-row.total p:first-child {
+  font-weight: bold;
+}
+
+.detail-row.total p:last-child {
+  font-weight: bold;
+  color: #ff7b2d;
+}
+
+/* Checkout Button */
+.checkout-btn {
+  width: 100%;
+  padding: 0.9rem;
+  background: #ff7b2d;
+  color: white;
+  border: none;
+  margin-top: 1.5rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 123, 45, 0.4);
+}
+
+.checkout-btn:hover {
+  background: #ff8f50;
+  transform: translateY(-2px);
+}
+
+.checkout-btn:active {
+  transform: scale(0.97);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 900px) {
+  .place-order {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .place-order-right {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .multi-fields {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 500px) {
+  .place-order {
+    padding: 1rem;
+  }
+
+  .place-order-left,
+  .place-order-right {
+    padding: 1.4rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .checkout-btn {
+    font-size: 1rem;
+  }
+}

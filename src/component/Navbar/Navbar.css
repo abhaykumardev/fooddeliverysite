@@ -1,0 +1,147 @@
+.navbar{
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.navbar-menu{
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  color: #49557e;
+  font-size: 18px;
+}
+
+.navbar .logo{
+  width: 160px;
+  height: 50px;
+  border-radius: 15px;
+}
+
+.navbar-right{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.navbar button{
+  background: transparent;
+  font-size: 14px;
+  color: #49557e;
+  border: 2px solid tomato;
+  padding: 10px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.navbar button:hover{
+  background-color: #f5e7e4;
+}
+.navbar .active{
+  padding-bottom: 2px;
+  border-bottom: 2px solid rgb(161, 75, 241);
+  border-radius: 6px;
+}
+.navbar li{
+  cursor: pointer;
+}
+
+.navbar-search-icon{
+  position: relative;
+}
+
+.navbar-search-icon .dot {
+  position: absolute;
+  width: 10px;      /* FIX */
+  height: 10px;     /* FIX */
+  background-color: tomato;
+  border-radius: 50%;  /* perfect circle */
+  top: -5px;
+  right: -5px;
+}
+
+
+@media (max-width: 992px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .navbar-menu {
+    gap: 15px;
+    font-size: 16px;
+  }
+
+  .navbar-right {
+    gap: 20px;
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 768px) {
+
+  .navbar {
+    justify-content: space-between;
+    padding: 15px 20px;
+  }
+
+  /* Hide menu initially */
+  .navbar-menu {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    gap: 25px;
+    padding: 25px 0;
+    display: none;        /* hidden by default */
+    border-top: 1px solid #eee;
+    z-index: 1000;
+  }
+
+  /* When menu is open */
+  .navbar-menu.open {
+    display: flex;
+  }
+
+  /* Hide buttons on mobile header (optional) */
+  .navbar-right button {
+    display: none;
+  }
+
+  /* Increase logo size slightly */
+  .navbar .logo {
+    width: 130px;
+    height: 45px;
+  }
+
+  /* Add hamburger icon style */
+  .hamburger {
+    width: 28px;
+    height: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    width: 100%;
+    height: 3px;
+    background: #4f619d;
+    border-radius: 3px;
+    transition: 0.3s;
+  }
+
+  /* Hamburger animation for "open" state */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+  }
+}

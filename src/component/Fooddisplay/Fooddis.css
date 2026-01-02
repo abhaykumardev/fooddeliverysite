@@ -1,0 +1,31 @@
+.food-display{
+  margin-top: 30px;
+}
+.food-display h2{
+  font-size: 3vw;
+  font-weight: 600;
+}
+
+.food-display-list{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px,1fr));
+  margin-top: 30px;
+  gap: 30px;
+  row-gap: 50px;
+}
+.show-more-btn {
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #535353, #1e1d1d);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.show-more-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
