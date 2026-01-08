@@ -1,10 +1,11 @@
-.navbar{
+.navbar {
   padding: 20px 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.navbar-menu{
+
+.navbar-menu {
   display: flex;
   list-style: none;
   gap: 20px;
@@ -12,19 +13,19 @@
   font-size: 18px;
 }
 
-.navbar .logo{
+.navbar .logo {
   width: 160px;
   height: 50px;
   border-radius: 15px;
 }
 
-.navbar-right{
+.navbar-right {
   display: flex;
   align-items: center;
   gap: 30px;
 }
 
-.navbar button{
+.navbar button {
   background: transparent;
   font-size: 14px;
   color: #49557e;
@@ -34,33 +35,41 @@
   cursor: pointer;
   transition: 0.3s;
 }
-.navbar button:hover{
+
+.navbar button:hover {
   background-color: #f5e7e4;
 }
-.navbar .active{
+
+.navbar .active {
   padding-bottom: 2px;
   border-bottom: 2px solid rgb(161, 75, 241);
   border-radius: 6px;
 }
-.navbar li{
+
+.navbar li {
   cursor: pointer;
 }
 
-.navbar-search-icon{
+.navbar-search-icon {
   position: relative;
 }
 
 .navbar-search-icon .dot {
   position: absolute;
-  width: 10px;      /* FIX */
-  height: 10px;     /* FIX */
+  width: 10px;
+  height: 10px;
   background-color: tomato;
-  border-radius: 50%;  /* perfect circle */
+  border-radius: 50%;
   top: -5px;
   right: -5px;
 }
+/* Hide mobile login by default (desktop & laptop) */
+.mobile-login {
+  display: none;
+}
 
 
+/* Tablet */
 @media (max-width: 992px) {
   .navbar {
     padding: 15px 20px;
@@ -76,15 +85,13 @@
   }
 }
 
-/* Small screens (phones) */
+/* Mobile */
 @media (max-width: 768px) {
-
   .navbar {
     justify-content: space-between;
     padding: 15px 20px;
   }
 
-  /* Hide menu initially */
   .navbar-menu {
     position: absolute;
     top: 70px;
@@ -95,28 +102,46 @@
     background: white;
     gap: 25px;
     padding: 25px 0;
-    display: none;        /* hidden by default */
+    display: none;
     border-top: 1px solid #eee;
     z-index: 1000;
   }
 
-  /* When menu is open */
+  @media (max-width: 768px) {
+
+  /* Show mobile login inside menu */
+  .mobile-login {
+    display: block;
+  }
+
+  /* Hide desktop login on mobile */
+  .desktop-login {
+    display: none;
+  }
+}
+
   .navbar-menu.open {
     display: flex;
   }
 
-  /* Hide buttons on mobile header (optional) */
-  .navbar-right button {
+  /* Hide desktop login on mobile */
+  .desktop-login {
     display: none;
   }
 
-  /* Increase logo size slightly */
+  /* Mobile login button */
+  .mobile-login button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 30px;
+  }
+
   .navbar .logo {
     width: 130px;
     height: 45px;
   }
 
-  /* Add hamburger icon style */
   .hamburger {
     width: 28px;
     height: 22px;
@@ -134,13 +159,14 @@
     transition: 0.3s;
   }
 
-  /* Hamburger animation for "open" state */
   .hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 6px);
   }
+
   .hamburger.active span:nth-child(2) {
     opacity: 0;
   }
+
   .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -6px);
   }

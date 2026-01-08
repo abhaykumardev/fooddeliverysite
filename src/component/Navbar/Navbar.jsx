@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-
 import "./Navbar.css";
 import { assets } from "../../assets/assets";
 import { Storecontext } from "../../Context/Storecontext";
@@ -9,74 +8,68 @@ const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("Home");
   const [isOpen, setIsOpen] = useState(false);
 
-  // ✅ Correct way to get context values
   const { gettotalamount } = useContext(Storecontext);
+
+  const handleClick = (name) => {
+    setMenu(name);
+    setIsOpen(false);
+  };
 
   return (
     <div className="navbar">
-      <Link to="/">
-        <img src={assets.mylogo} alt="" className="logo" />
+      {/* Logo */}
+      <Link to="/" onClick={() => handleClick("Home")}>
+        <img src={assets.mylogo} alt="logo" className="logo" />
       </Link>
 
-      {/* Menu List */}
+      {/* Menu */}
       <ul className={`navbar-menu ${isOpen ? "open" : ""}`}>
-        <Link
-          to="/"
-          onClick={() => {
-            setMenu("Home");
-            setIsOpen(false);
-          }}
-          className={menu === "Home" ? "active" : ""}
-        >
-          Home
-        </Link>
-
-        <li
-          onClick={() => {
-            setMenu("Menu");
-            setIsOpen(false);
-          }}
-          className={menu === "Menu" ? "active" : ""}
-        >
-          Menu
+        <li className={menu === "Home" ? "active" : ""}>
+          <Link to="/" onClick={() => handleClick("Home")}>Home</Link>
         </li>
 
-        <li
-          onClick={() => {
-            setMenu("Mobile-App");
-            setIsOpen(false);
-          }}
-          className={menu === "Mobile-App" ? "active" : ""}
-        >
-          Mobile-App
+        <li className={menu === "Menu" ? "active" : ""}>
+          <Link to="/menu" onClick={() => handleClick("Menu")}>Menu</Link>
         </li>
 
-        <li
-          onClick={() => {
-            setMenu("Contact-Us");
-            setIsOpen(false);
-          }}
-          className={menu === "Contact-Us" ? "active" : ""}
-        >
-          Contact Us
+        <li className={menu === "Mobile-App" ? "active" : ""}>
+          <Link to="/mobile-app" onClick={() => handleClick("Mobile-App")}>
+            Mobile App
+          </Link>
+        </li>
+
+        <li className={menu === "Contact-Us" ? "active" : ""}>
+          <Link to="/contact" onClick={() => handleClick("Contact-Us")}>
+            Contact Us
+          </Link>
+        </li>
+
+        {/* ✅ MOBILE SIGN IN BUTTON */}
+        <li className="mobile-login">
+          <button
+            onClick={() => {
+              setShowLogin(true);
+              setIsOpen(false);
+            }}
+          >
+            Sign In
+          </button>
         </li>
       </ul>
 
-      {/* Right section */}
+      {/* Right Section */}
       <div className="navbar-right">
         <img src={assets.search_icon} alt="search" />
 
-        {/* Cart Icon + Dot */}
+        {/* Cart */}
         <div className="navbar-search-icon">
           <Link to="/cart">
             <img src={assets.basket_icon} alt="cart" />
           </Link>
-
-          {/* Dot shows only if amount > 0 */}
           {gettotalamount() > 0 && <div className="dot"></div>}
         </div>
 
-        {/* Hamburger Menu */}
+        {/* Hamburger */}
         <div
           className={`hamburger ${isOpen ? "active" : ""}`}
           onClick={() => setIsOpen(!isOpen)}
@@ -86,8 +79,10 @@ const Navbar = ({ setShowLogin }) => {
           <span></span>
         </div>
 
-        {/* Sign-In Button */}
-        <button onClick={() => setShowLogin(true)}>Sign In</button>
+        {/* DESKTOP SIGN IN */}
+        <button className="desktop-login" onClick={() => setShowLogin(true)}>
+          Sign In
+        </button>
       </div>
     </div>
   );
